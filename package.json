@@ -1,0 +1,35 @@
+{
+  "name": "talume-doc",
+  "version": "1.0.0",
+  "author": "Carlos Eduardo",
+  "bin": {
+    "talume-doc": "bin/talume-doc.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk",
+    "test:browser": "node scripts/browser-smoke.cjs",
+    "synth": "cdk synth",
+    "publish:lambda": "bash scripts/publish.sh",
+    "test:ui": "node scripts/ui-integration.cjs"
+  },
+  "devDependencies": {
+    "@types/jest": "30.0.0",
+    "@types/node": "24.10.9",
+    "aws-cdk": "2.1135.1",
+    "jest": "30.2.0",
+    "jsdom": "30.1.1",
+    "playwright": "1.61.1",
+    "ts-jest": "29.4.6",
+    "ts-node": "10.9.2",
+    "typescript": "5.9.3"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.264.0",
+    "constructs": "10.6.0"
+  },
+  "description": "TalumeDoc \u2014 C#/.NET document validation on AWS",
+  "private": true
+}

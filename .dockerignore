@@ -1,0 +1,9 @@
+.git
+node_modules
+cdk.out
+artifacts
+**/bin
+**/obj
+**/.talumedoc-data
+.env*
+TestResults

@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "dependencies": {
+    "net10.0": {
+      "AWSSDK.DynamoDBv2": {
+        "type": "Direct",
+        "requested": "[4.0.106, )",
+        "resolved": "4.0.106",
+        "contentHash": "VVT/S9pm2v4NTT4b7yp5otEGGRDpKGEKrKuQJMOI1bzsrIEDnHJ9rFp8sXbADA3hpCTfVy2XtAMqj+EfTEKGBg==",
+        "dependencies": {
+          "AWSSDK.Core": "[4.0.102.6, 5.0.0)"
+        }
+      },
+      "AWSSDK.S3": {
+        "type": "Direct",
+        "requested": "[4.0.103.4, )",
+        "resolved": "4.0.103.4",
+        "contentHash": "qi8NkWG7s6GkNePTWSxP51O6AaTEWquin4X4L82plMte8bTFL2A1/osRfr6DBmvmSOc8y0orx25jJXg9gcbMIQ==",
+        "dependencies": {
+          "AWSSDK.Core": "[4.0.102.6, 5.0.0)"
+        }
+      },
+      "AWSSDK.Core": {
+        "type": "Transitive",
+        "resolved": "4.0.102.6",
+        "contentHash": "YwUi9qpz/OHqwEgsf8I5jj1aC/xkkjmF91R8Yx6yD66dhOiORgQJynYQk0fzI4xdhBgUaw8SRGbMkLRrvL+CNA=="
+      },
+      "talumedoc.core": {
+        "type": "Project"
+      }
+    },
+    "net10.0/linux-x64": {}
+  }
+}

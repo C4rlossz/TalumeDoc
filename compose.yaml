@@ -1,0 +1,9 @@
+services:
+  talumedoc:
+    build: .
+    ports:
+      - "127.0.0.1:5080:8080"
+    volumes:
+      - talumedoc-data:/data
+volumes:
+  talumedoc-data:

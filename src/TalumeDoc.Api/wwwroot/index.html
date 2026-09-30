@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#102b29"><title>TalumeDoc · Clareza em cada arquivo</title><link rel="icon" href="/favicon.svg" type="image/svg+xml"><script src="/theme.js"></script><link rel="stylesheet" href="/styles.css"><script type="module" src="/app.js"></script></head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="/" aria-label="TalumeDoc início"><span class="brand-mark">t<span>•</span></span><span>talume<span class="brand-doc">doc</span><small>DOCUMENT WORKSPACE</small></span></a>
+  <div class="workspace"><span class="workspace-icon">T</span><div>Meu workspace<small>Uma ferramenta Talume</small></div><span class="workspace-dot"></span></div>
+  <p class="nav-label">WORKSPACE</p>
+  <nav aria-label="Navegação principal"><a class="nav-item active" href="#documents"><span>▤</span> Documentos <span id="nav-count" class="nav-count">0</span></a><button class="nav-item" id="guide-button"><span>◫</span> Guia de importação</button></nav>
+  <div class="sidebar-note"><span class="small-orbit">✦</span><h3>Menos revisão.<br>Mais clareza.</h3><p>Transforme arquivos em dados prontos para o próximo passo.</p><button id="sample-side" class="text-button">Experimentar com um exemplo <span>↗</span></button></div>
+  <div class="sidebar-bottom"><span class="avatar">TD</span><div>TalumeDoc<small>Documentos, organizados.</small></div><span class="version">v1.0</span></div>
+</aside>
+<div class="page">
+<header class="topbar"><div><span class="breadcrumb">Workspace</span><span class="slash">/</span><strong>Documentos</strong></div><div class="header-actions"><span id="connection" class="connection">Conectando</span><button id="theme-toggle" class="button button-small theme-toggle" type="button" aria-label="Ativar tema escuro" aria-pressed="false" title="Ativar tema escuro"><span id="theme-icon" aria-hidden="true">☾</span><span id="theme-label">Tema escuro</span></button><button id="about-button" class="button button-small" type="button" aria-haspopup="dialog" aria-controls="about-dialog">Sobre o projeto</button><button id="auth-button" class="button button-small">Entrar</button></div></header>
+<main>
+<div id="notice" class="notice" role="status" hidden></div>
+<section class="page-heading"><div><div class="eyebrow">SEU FLUXO, MAIS SIMPLES</div><h1>Clareza em cada arquivo<span>.</span></h1><p>Envie, valide e acompanhe seus documentos em um só lugar.</p></div><span class="heading-tag"><span>✦</span> Feito para simplificar</span></section>
+<section class="stats" aria-label="Resumo dos documentos">
+  <article class="stat"><div><span>Arquivos enviados</span><span class="stat-icon">▤</span></div><strong id="stat-total">0</strong><small>No histórico recente</small></article>
+  <article class="stat"><div><span>Em processamento</span><span class="stat-icon gold">◷</span></div><strong id="stat-processing">0</strong><small>Validação em segundo plano</small></article>
+  <article class="stat"><div><span>Concluídos</span><span class="stat-icon green">✓</span></div><strong id="stat-completed">0</strong><small>Relatório disponível</small></article>
+  <article class="stat"><div><span>Precisam de atenção</span><span class="stat-icon orange">!</span></div><strong id="stat-attention">0</strong><small>Erros ou registros inválidos</small></article>
+</section>
+<section class="upload-grid">
+<article class="card upload-card"><div class="card-heading"><div><h2>Novo documento</h2><p>Uma nova importação começa aqui.</p></div><span class="step-chip">01 / ENVIO</span></div>
+<div id="drop-zone" class="drop-zone"><div class="upload-symbol" aria-hidden="true">↑</div><h3>Arraste seu arquivo CSV para cá</h3><p>ou selecione um arquivo do seu computador</p><label for="file-input" class="button button-primary">＋ Selecionar arquivo</label><input id="file-input" type="file" accept=".csv,text/csv" class="visually-hidden"><span class="upload-limit">CSV em UTF-8 · até 2 MiB · 10.000 registros</span></div>
+<div class="upload-footer"><span><span class="tiny-shield">◇</span> Seus arquivos ficam no seu workspace</span><a href="/modelo-produtos.csv" download>Baixar modelo <span>↓</span></a></div>
+</article>
+<article class="guide-card"><div class="eyebrow">DO ARQUIVO AO RESULTADO</div><h2>Dados confiáveis.<br>Sem o trabalho manual.</h2><ol class="flow-list"><li><span>1</span><div><strong>Envie seu arquivo</strong><p>Use nosso modelo de produtos.</p></div></li><li><span>2</span><div><strong>Deixe a validação com a gente</strong><p>Campos, valores e SKUs duplicados.</p></div></li><li><span>3</span><div><strong>Receba um diagnóstico claro</strong><p>Veja o que ajustar, registro por registro.</p></div></li></ol><button id="sample-button" class="button button-outline">Testar com um exemplo <span>↗</span></button></article>
+</section>
+<section id="documents" class="card documents-card"><div class="documents-heading"><div><h2>Seus documentos <span id="document-count" class="count-chip">0</span></h2><p>Do primeiro envio ao resultado final.</p></div><button id="refresh-button" class="button button-small">↻ Atualizar</button></div>
+<div class="table-toolbar"><label class="search"><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="Buscar por nome do arquivo" aria-label="Buscar documentos"></label><select id="status-filter" aria-label="Filtrar por status"><option value="all">Todos os status</option><option value="Queued">Na fila</option><option value="Processing">Processando</option><option value="Completed">Concluídos</option><option value="attention">Precisam de atenção</option></select></div>
+<div class="table-scroll"><table><thead><tr><th>DOCUMENTO</th><th>STATUS</th><th>REGISTROS</th><th>ENVIADO EM</th><th><span class="visually-hidden">Ações</span></th></tr></thead><tbody id="document-rows"></tbody></table></div>
+<div id="empty-state" class="empty-state"><div class="empty-symbol">▤</div><h3>Seu próximo arquivo começa uma história.</h3><p>Envie seu primeiro CSV ou experimente um exemplo para conhecer o TalumeDoc.</p><button id="empty-sample" class="text-button">Experimentar agora ↗</button></div>
+<footer class="table-footer"><span id="list-summary">Nenhum documento enviado</span><span>Atualização automática a cada 5 segundos</span></footer>
+</section>
+<footer class="page-footer"><span><b>talume</b>doc <span class="footer-divider">/</span> Organize. Valide. Avance.</span><a href="https://www.linkedin.com/in/carlos-eduardo-a8bb50268/" target="_blank" rel="noopener noreferrer">Desenvolvido por Carlos Eduardo ↗</a></footer>
+</main></div>
+<dialog id="report-dialog"><div class="dialog-heading"><div><div class="eyebrow">RESULTADO DA VALIDAÇÃO</div><h2 id="report-title">Relatório</h2></div><button class="close-button" id="close-report" aria-label="Fechar relatório">×</button></div><div id="report-body"></div><div class="dialog-actions"><button id="download-report" class="button button-primary">↓ Baixar relatório CSV</button></div></dialog>
+<dialog id="guide-dialog"><div class="dialog-heading"><div><div class="eyebrow">COMECE POR AQUI</div><h2>Seu arquivo, no formato certo.</h2></div><button class="close-button" id="close-guide" aria-label="Fechar guia">×</button></div><p>Use um CSV em UTF-8, separado por vírgulas. O cabeçalho deve conter, nesta ordem:</p><pre>sku,nome,quantidade,preco
+TAL-001,Caderno,10,29.90
+TAL-002,Caneta,25,4.50</pre><ul class="guide-rules"><li><strong>sku:</strong> obrigatório, único no arquivo, até 64 caracteres.</li><li><strong>nome:</strong> obrigatório, até 200 caracteres.</li><li><strong>quantidade:</strong> inteiro não negativo.</li><li><strong>preco:</strong> positivo, ponto decimal, até duas casas e valor máximo de 999999999.</li></ul><p>Campos com vírgulas devem ficar entre aspas. Um arquivo pode ter até 2 MiB e 10.000 registros. Linhas em branco são ignoradas. O número do registro no relatório inclui o cabeçalho como registro 1.</p><p>“Concluído” significa que a análise terminou. Consulte o relatório para ver registros inválidos. Um arquivo “Rejeitado” precisa ser corrigido e enviado novamente.</p><div class="dialog-actions"><a href="/modelo-produtos.csv" download class="button button-primary">↓ Baixar modelo</a></div></dialog>
+<dialog id="about-dialog" class="about-dialog" aria-labelledby="about-title">
+  <div class="dialog-heading"><div><div class="eyebrow">UMA FERRAMENTA DA FAMÍLIA TALUME</div><h2 id="about-title">Por trás do TalumeDoc.</h2></div><button class="close-button" id="close-about" type="button" aria-label="Fechar informações do projeto" autofocus>×</button></div>
+  <section class="creator-card" aria-labelledby="creator-name"><span class="creator-avatar" aria-hidden="true">CE</span><div><span class="creator-label">CRIADOR E DESENVOLVEDOR</span><h3 id="creator-name">Carlos Eduardo</h3><p>Desenvolvedor com foco em C# e .NET. Criador da família Talume e do TalumeDoc, um projeto que reúne desenvolvimento backend e arquitetura de aplicações na AWS.</p><a class="button button-primary creator-link" href="https://www.linkedin.com/in/carlos-eduardo-a8bb50268/" target="_blank" rel="noopener noreferrer">Conheça meu LinkedIn <span aria-hidden="true">↗</span></a></div></section>
+  <section class="about-purpose" aria-labelledby="purpose-title"><h3 id="purpose-title">O que o TalumeDoc faz</h3><p>Recebe arquivos CSV, valida os dados em segundo plano e apresenta um relatório claro dos registros que precisam de ajustes. Uma ferramenta criada para simplificar a revisão de documentos.</p></section>
+  <section aria-labelledby="technologies-title"><div class="technology-heading"><h3 id="technologies-title">Tecnologias utilizadas</h3><span class="technology-caption">DA INTERFACE À INFRAESTRUTURA</span></div><dl class="technology-grid">
+    <div><dt>C# · .NET 10 · ASP.NET Core</dt><dd>API, regras de validação e processamento dos documentos.</dd></div>
+    <div><dt>HTML · CSS · JavaScript</dt><dd>Interface responsiva, temas e acompanhamento dos resultados.</dd></div>
+    <div><dt>AWS Lambda · API Gateway</dt><dd>Execução do backend e disponibilização da API na arquitetura AWS.</dd></div>
+    <div><dt>Amazon S3 · DynamoDB</dt><dd>Armazenamento privado dos arquivos, relatórios e metadados.</dd></div>
+    <div><dt>Amazon SQS · EventBridge Pipes</dt><dd>Fila de processamento e encaminhamento dos documentos para validação.</dd></div>
+    <div><dt>Amazon Cognito</dt><dd>Autenticação com OAuth 2.0, PKCE e tokens JWT no ambiente AWS.</dd></div>
+    <div><dt>CloudWatch · IAM · SNS</dt><dd>Monitoramento, permissões de acesso e alertas operacionais.</dd></div>
+    <div><dt>AWS CDK · TypeScript</dt><dd>Definição reproduzível da infraestrutura como código.</dd></div>
+    <div><dt>GitHub Actions · xUnit · Jest</dt><dd>Automação de testes, validação da aplicação e pipeline de implantação.</dd></div>
+    <div><dt>Docker · Docker Compose</dt><dd>Configuração alternativa para executar a demonstração local.</dd></div>
+  </dl></section>
+  <div class="about-footer"><span>Desenvolvido por Carlos Eduardo</span><span>TalumeDoc · Família Talume</span></div>
+</dialog>
+<div id="toast" class="toast" role="status" hidden></div>
+</body></html>

@@ -1,0 +1,33 @@
+name: Build and test
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: dotnet restore TalumeDoc.sln --locked-mode
+      - run: dotnet test TalumeDoc.sln --no-restore -c Release --logger trx --results-directory TestResults
+      - run: npm ci
+      - run: dotnet build src/TalumeDoc.Api
+      - run: npm run test:ui
+      - run: npm run build
+      - run: npm test -- --runInBand
+      - run: bash scripts/publish.sh
+      - run: npx cdk synth
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results
+          path: TestResults
