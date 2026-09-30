@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "aws-cdk-lib": "2.264.0",
-    "constructs": "10.6.0"
+    "constructs": "10.8.1"
   },
   "description": "TalumeDoc \u2014 C#/.NET document validation on AWS",
   "private": true
