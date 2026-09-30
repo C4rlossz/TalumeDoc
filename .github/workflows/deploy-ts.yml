@@ -21,7 +21,7 @@ jobs:
         shell: bash
         run: |
           test -n "$AWS_ACCOUNT_ID" && test -n "$AWS_REGION" && test -n "$AWS_ROLE_NAME"
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v6
         with:
           dotnet-version: '10.0.x'
       - uses: actions/setup-node@v4
