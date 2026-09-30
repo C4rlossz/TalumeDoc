@@ -16,7 +16,7 @@ jobs:
       AWS_REGION: ${{ vars.AWS_REGION }}
       AWS_ROLE_NAME: ${{ vars.AWS_ROLE_NAME }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Validate deployment configuration
         shell: bash
         run: |
