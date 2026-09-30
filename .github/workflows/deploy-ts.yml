@@ -45,7 +45,7 @@ jobs:
           REPOSITORY_NAME: ${{ github.repository }}
           COMMIT_SHA: ${{ github.sha }}
         run: npx cdk deploy TalumeDoc --require-approval never --outputs-file cdk-outputs.json -c "repoName=$REPOSITORY_NAME" -c "gitCommit=$COMMIT_SHA"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: deployment-outputs
           path: cdk-outputs.json
